@@ -1,44 +1,42 @@
-# Dependency directories
-node_modules/
-dist/
-tmp/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Nx specific
-nx/nx-cache/
-tmp/nx-angular-template/
+# compiled output
+dist
+tmp
+/out-tsc
 
-# IDE - Editor
-*.idea/
-*.vscode/
-*.eclipse/
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
 *.sublime-workspace
 
-# Operating System Files
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
 .DS_Store
 Thumbs.db
 
-# Environment Variables
-.env
-.env.local
-.env*.local
-
-# Debug logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Production Builds
-/build/
-
-# End-to-end tests
-/e2e/*.js
-/e2e/*.map
-
-# Linting
-.eslintcache
-
-# Cache files for various tools
-.cache/
-*.log
-*.tsbuildinfo
-*.tmp
+.nx/cache
+.angular
