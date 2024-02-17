@@ -1,0 +1,57 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  group(id: ID!): Group
+  groups: [Group]
+  item(id: ID!): Item
+  items: [Item]
+}
+
+type Mutation {
+  createGroup(input: CreateGroupInput!): Group
+  updateGroup(input: UpdateGroupInput!): Group
+  deleteGroup(id: ID!): Boolean
+
+  createItem(input: CreateItemInput!): Item
+  updateItem(input: UpdateItemInput!): Item
+  deleteItem(id: ID!): Boolean
+}
+
+type Group {
+  id: ID!
+  name: String!
+  parentGroup: Group
+  childGroups: [Group]
+  items: [Item]
+}
+
+type Item {
+  id: ID!
+  name: String!
+  group: Group
+}
+
+input CreateGroupInput {
+  name: String!
+  parentId: ID
+}
+
+input UpdateGroupInput {
+  id: ID!
+  name: String
+  parentId: ID
+}
+
+input CreateItemInput {
+  name: String!
+  groupId: ID!
+}
+
+input UpdateItemInput {
+  id: ID!
+  name: String
+  groupId: ID
+}
