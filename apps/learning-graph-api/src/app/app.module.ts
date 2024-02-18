@@ -5,6 +5,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { join } from 'path';
+import { GroupModule } from '../modules/group/group.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { join } from 'path';
         path: join(process.cwd(),'libs/graph-ql/src/lib/graphql.types.ts'),
       },
     }),
+    GroupModule
   ],
   controllers: [AppController],
   providers: [AppService,

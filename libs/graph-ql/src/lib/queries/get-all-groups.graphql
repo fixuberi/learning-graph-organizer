@@ -1,0 +1,18 @@
+query GetAllGroups {
+  groups {
+    id
+    name
+    parentGroup {
+      id
+      name
+    }
+    childGroups {
+      id
+      name
+    }
+    items {
+      id
+      name
+    }
+  }
+}

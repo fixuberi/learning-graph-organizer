@@ -1,0 +1,10 @@
+query GetItem($id: ID!) {
+  item(id: $id) {
+    id
+    name
+    group {
+      id
+      name
+    }
+  }
+}
