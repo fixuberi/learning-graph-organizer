@@ -2,6 +2,5 @@ mutation UpdateExistingGroup($input: UpdateGroupInput!) {
   updateGroup(input: $input) {
     id
     name
-    parentId
   }
 }
