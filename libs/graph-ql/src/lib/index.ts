@@ -1,2 +1,1 @@
-export * from './graphql.types';
-export * from './schema.graphql';
+export * from './schema.types';
