@@ -31,7 +31,7 @@ export interface UpdateItemInput {
 }
 
 export interface IQuery {
-    group(id: string): Nullable<Group> | Promise<Nullable<Group>>;
+    group(id?: Nullable<string>): Nullable<Group> | Promise<Nullable<Group>>;
     groups(): Nullable<Nullable<Group>[]> | Promise<Nullable<Nullable<Group>[]>>;
     item(id: string): Nullable<Item> | Promise<Nullable<Item>>;
     items(): Nullable<Nullable<Item>[]> | Promise<Nullable<Nullable<Item>[]>>;
@@ -47,8 +47,8 @@ export interface IMutation {
 }
 
 export interface Group {
-    id: string;
-    name: string;
+    id?: Nullable<string>;
+    name?: Nullable<string>;
     parentGroup?: Nullable<Group>;
     childGroups?: Nullable<Nullable<Group>[]>;
     items?: Nullable<Nullable<Item>[]>;

@@ -30,9 +30,9 @@ export type CreateItemInput = {
 export type Group = {
   __typename?: 'Group';
   childGroups?: Maybe<Array<Maybe<Group>>>;
-  id: Scalars['ID']['output'];
+  id?: Maybe<Scalars['ID']['output']>;
   items?: Maybe<Array<Maybe<Item>>>;
-  name: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
   parentGroup?: Maybe<Group>;
 };
 
@@ -93,7 +93,7 @@ export type Query = {
 
 
 export type QueryGroupArgs = {
-  id: Scalars['ID']['input'];
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 
@@ -118,7 +118,7 @@ export type CreateNewGroupMutationVariables = Exact<{
 }>;
 
 
-export type CreateNewGroupMutation = { __typename?: 'Mutation', createGroup?: { __typename?: 'Group', id: string, name: string } | null };
+export type CreateNewGroupMutation = { __typename?: 'Mutation', createGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null };
 
 export type DeleteGroupMutationVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -132,26 +132,26 @@ export type UpdateExistingGroupMutationVariables = Exact<{
 }>;
 
 
-export type UpdateExistingGroupMutation = { __typename?: 'Mutation', updateGroup?: { __typename?: 'Group', id: string, name: string } | null };
+export type UpdateExistingGroupMutation = { __typename?: 'Mutation', updateGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null };
 
 export type GetAllGroupsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllGroupsQuery = { __typename?: 'Query', groups?: Array<{ __typename?: 'Group', id: string, name: string, parentGroup?: { __typename?: 'Group', id: string, name: string } | null, childGroups?: Array<{ __typename?: 'Group', id: string, name: string } | null> | null, items?: Array<{ __typename?: 'Item', id: string, name: string } | null> | null } | null> | null };
+export type GetAllGroupsQuery = { __typename?: 'Query', groups?: Array<{ __typename?: 'Group', id?: string | null, name?: string | null, parentGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null, childGroups?: Array<{ __typename?: 'Group', id?: string | null, name?: string | null } | null> | null, items?: Array<{ __typename?: 'Item', id: string, name: string } | null> | null } | null> | null };
 
 export type GetGroupQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type GetGroupQuery = { __typename?: 'Query', group?: { __typename?: 'Group', id: string, name: string, parentGroup?: { __typename?: 'Group', id: string, name: string } | null, childGroups?: Array<{ __typename?: 'Group', id: string, name: string } | null> | null, items?: Array<{ __typename?: 'Item', id: string, name: string } | null> | null } | null };
+export type GetGroupQuery = { __typename?: 'Query', group?: { __typename?: 'Group', id?: string | null, name?: string | null, parentGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null, childGroups?: Array<{ __typename?: 'Group', id?: string | null, name?: string | null } | null> | null, items?: Array<{ __typename?: 'Item', id: string, name: string } | null> | null } | null };
 
 export type GetItemQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type GetItemQuery = { __typename?: 'Query', item?: { __typename?: 'Item', id: string, name: string, group?: { __typename?: 'Group', id: string, name: string } | null } | null };
+export type GetItemQuery = { __typename?: 'Query', item?: { __typename?: 'Item', id: string, name: string, group?: { __typename?: 'Group', id?: string | null, name?: string | null } | null } | null };
 
 export const CreateNewGroupDocument = gql`
     mutation CreateNewGroup($input: CreateGroupInput!) {

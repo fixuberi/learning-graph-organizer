@@ -4,7 +4,7 @@ schema {
 }
 
 type Query {
-  group(id: ID!): Group
+  group(id: ID): Group
   groups: [Group]
   item(id: ID!): Item
   items: [Item]
@@ -21,8 +21,8 @@ type Mutation {
 }
 
 type Group {
-  id: ID!
-  name: String!
+  id: ID
+  name: String
   parentGroup: Group
   childGroups: [Group]
   items: [Item]
