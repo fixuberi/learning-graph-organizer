@@ -1,11 +1,14 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { appRoutes } from './app.routes';
 import { InMemoryCache } from '@apollo/client/cache';
+import { provideEffects } from '@ngrx/effects';
+import { State, createReducer, provideState, provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { APOLLO_OPTIONS, Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { appRoutes } from './app.routes';
 
 export function createApollo(httpLink: HttpLink) {
   return {
@@ -16,6 +19,12 @@ export function createApollo(httpLink: HttpLink) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideEffects(),
+    provideStore(),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+    }),
     provideRouter(appRoutes),
     importProvidersFrom(HttpClientModule),
     {
