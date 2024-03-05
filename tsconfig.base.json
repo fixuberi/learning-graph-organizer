@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@learning-graph/graph-ql": ["libs/graph-ql/src/index.ts"]
+      "@learning-graph/graph-ql": ["libs/graph-ql/src/index.ts"],
+      "@learning-graph/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

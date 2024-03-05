@@ -1,9 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { InMemoryCache } from '@apollo/client/cache';
 import { provideEffects } from '@ngrx/effects';
-import { State, createReducer, provideState, provideStore } from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { APOLLO_OPTIONS, Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
@@ -25,6 +26,7 @@ export const appConfig: ApplicationConfig = {
       maxAge: 25,
       logOnly: !isDevMode(),
     }),
+    provideAnimations(),
     provideRouter(appRoutes),
     importProvidersFrom(HttpClientModule),
     {

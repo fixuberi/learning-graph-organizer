@@ -20,8 +20,16 @@
           "apps/learning-graph/src/favicon.ico",
           "apps/learning-graph/src/assets"
         ],
-        "styles": ["apps/learning-graph/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/learning-graph/src/styles.scss",
+          "node_modules/primeflex/primeflex.css",
+          "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+          "node_modules/primeng/resources/primeng.min.css"
+        ],
+        "scripts": [],
+        "stylePreprocessorOptions": {
+          "includePaths": ["node_modules/"]
+        }
       },
       "configurations": {
         "production": {

@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../../libs/ui/src/lib/primeng/primeng.module.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
   }

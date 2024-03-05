@@ -1,17 +1,20 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { GetAllGroupsGQL } from './core/graphql/codegen.service';
+
+import { ShellComponent } from '@learning-graph/ui';
+import { appRoutes } from './app.routes';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ShellComponent],
   selector: 'learning-graph-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  allGroupsQuery = inject(GetAllGroupsGQL);
-  groups$  = this.allGroupsQuery.watch().valueChanges
-  title = 'learning-graph';
+  navItems = appRoutes.map(({ path, label }) => ({
+    path: path as string,
+    label,
+  }));
 }
