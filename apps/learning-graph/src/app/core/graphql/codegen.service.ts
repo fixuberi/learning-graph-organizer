@@ -10,11 +10,11 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
 };
 
 export type CreateGroupInput = {
@@ -53,31 +53,25 @@ export type Mutation = {
   updateItem?: Maybe<Item>;
 };
 
-
 export type MutationCreateGroupArgs = {
   input: CreateGroupInput;
 };
-
 
 export type MutationCreateItemArgs = {
   input: CreateItemInput;
 };
 
-
 export type MutationDeleteGroupArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type MutationDeleteItemArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type MutationUpdateGroupArgs = {
   input: UpdateGroupInput;
 };
-
 
 export type MutationUpdateItemArgs = {
   input: UpdateItemInput;
@@ -91,11 +85,9 @@ export type Query = {
   items?: Maybe<Array<Maybe<Item>>>;
 };
 
-
 export type QueryGroupArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type QueryItemArgs = {
   id: Scalars['ID']['input'];
@@ -117,178 +109,209 @@ export type CreateNewGroupMutationVariables = Exact<{
   input: CreateGroupInput;
 }>;
 
-
-export type CreateNewGroupMutation = { __typename?: 'Mutation', createGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null };
+export type CreateNewGroupMutation = {
+  __typename?: 'Mutation';
+  createGroup?: { __typename?: 'Group'; id?: string | null; name?: string | null } | null;
+};
 
 export type DeleteGroupMutationVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
-
-export type DeleteGroupMutation = { __typename?: 'Mutation', deleteGroup?: boolean | null };
+export type DeleteGroupMutation = { __typename?: 'Mutation'; deleteGroup?: boolean | null };
 
 export type UpdateExistingGroupMutationVariables = Exact<{
   input: UpdateGroupInput;
 }>;
 
+export type UpdateExistingGroupMutation = {
+  __typename?: 'Mutation';
+  updateGroup?: { __typename?: 'Group'; id?: string | null; name?: string | null } | null;
+};
 
-export type UpdateExistingGroupMutation = { __typename?: 'Mutation', updateGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null };
+export type GetAllGroupsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllGroupsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllGroupsQuery = { __typename?: 'Query', groups?: Array<{ __typename?: 'Group', id?: string | null, name?: string | null, parentGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null, childGroups?: Array<{ __typename?: 'Group', id?: string | null, name?: string | null } | null> | null, items?: Array<{ __typename?: 'Item', id: string, name: string } | null> | null } | null> | null };
+export type GetAllGroupsQuery = {
+  __typename?: 'Query';
+  groups?: Array<{
+    __typename?: 'Group';
+    id?: string | null;
+    name?: string | null;
+    parentGroup?: { __typename?: 'Group'; id?: string | null; name?: string | null } | null;
+    childGroups?: Array<{ __typename?: 'Group'; id?: string | null; name?: string | null } | null> | null;
+    items?: Array<{ __typename?: 'Item'; id: string; name: string } | null> | null;
+  } | null> | null;
+};
 
 export type GetGroupQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
-
-export type GetGroupQuery = { __typename?: 'Query', group?: { __typename?: 'Group', id?: string | null, name?: string | null, parentGroup?: { __typename?: 'Group', id?: string | null, name?: string | null } | null, childGroups?: Array<{ __typename?: 'Group', id?: string | null, name?: string | null } | null> | null, items?: Array<{ __typename?: 'Item', id: string, name: string } | null> | null } | null };
+export type GetGroupQuery = {
+  __typename?: 'Query';
+  group?: {
+    __typename?: 'Group';
+    id?: string | null;
+    name?: string | null;
+    parentGroup?: { __typename?: 'Group'; id?: string | null; name?: string | null } | null;
+    childGroups?: Array<{ __typename?: 'Group'; id?: string | null; name?: string | null } | null> | null;
+    items?: Array<{ __typename?: 'Item'; id: string; name: string } | null> | null;
+  } | null;
+};
 
 export type GetItemQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
-
-export type GetItemQuery = { __typename?: 'Query', item?: { __typename?: 'Item', id: string, name: string, group?: { __typename?: 'Group', id?: string | null, name?: string | null } | null } | null };
+export type GetItemQuery = {
+  __typename?: 'Query';
+  item?: {
+    __typename?: 'Item';
+    id: string;
+    name: string;
+    group?: { __typename?: 'Group'; id?: string | null; name?: string | null } | null;
+  } | null;
+};
 
 export const CreateNewGroupDocument = gql`
-    mutation CreateNewGroup($input: CreateGroupInput!) {
-  createGroup(input: $input) {
-    id
-    name
-  }
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class CreateNewGroupGQL extends Apollo.Mutation<CreateNewGroupMutation, CreateNewGroupMutationVariables> {
-    override document = CreateNewGroupDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
+  mutation CreateNewGroup($input: CreateGroupInput!) {
+    createGroup(input: $input) {
+      id
+      name
     }
   }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateNewGroupGQL extends Apollo.Mutation<CreateNewGroupMutation, CreateNewGroupMutationVariables> {
+  override document = CreateNewGroupDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 export const DeleteGroupDocument = gql`
-    mutation DeleteGroup($id: ID!) {
-  deleteGroup(id: $id)
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class DeleteGroupGQL extends Apollo.Mutation<DeleteGroupMutation, DeleteGroupMutationVariables> {
-    override document = DeleteGroupDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
+  mutation DeleteGroup($id: ID!) {
+    deleteGroup(id: $id)
   }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DeleteGroupGQL extends Apollo.Mutation<DeleteGroupMutation, DeleteGroupMutationVariables> {
+  override document = DeleteGroupDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 export const UpdateExistingGroupDocument = gql`
-    mutation UpdateExistingGroup($input: UpdateGroupInput!) {
-  updateGroup(input: $input) {
-    id
-    name
-  }
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class UpdateExistingGroupGQL extends Apollo.Mutation<UpdateExistingGroupMutation, UpdateExistingGroupMutationVariables> {
-    override document = UpdateExistingGroupDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
+  mutation UpdateExistingGroup($input: UpdateGroupInput!) {
+    updateGroup(input: $input) {
+      id
+      name
     }
   }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UpdateExistingGroupGQL extends Apollo.Mutation<
+  UpdateExistingGroupMutation,
+  UpdateExistingGroupMutationVariables
+> {
+  override document = UpdateExistingGroupDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 export const GetAllGroupsDocument = gql`
-    query GetAllGroups {
-  groups {
-    id
-    name
-    parentGroup {
+  query GetAllGroups {
+    groups {
       id
       name
+      parentGroup {
+        id
+        name
+      }
+      childGroups {
+        id
+        name
+      }
+      items {
+        id
+        name
+      }
     }
-    childGroups {
-      id
-      name
-    }
-    items {
-      id
-      name
-    }
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetAllGroupsGQL extends Apollo.Query<GetAllGroupsQuery, GetAllGroupsQueryVariables> {
+  override document = GetAllGroupsDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
   }
 }
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetAllGroupsGQL extends Apollo.Query<GetAllGroupsQuery, GetAllGroupsQueryVariables> {
-    override document = GetAllGroupsDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }
 export const GetGroupDocument = gql`
-    query GetGroup($id: ID!) {
-  group(id: $id) {
-    id
-    name
-    parentGroup {
+  query GetGroup($id: ID!) {
+    group(id: $id) {
       id
       name
+      parentGroup {
+        id
+        name
+      }
+      childGroups {
+        id
+        name
+      }
+      items {
+        id
+        name
+      }
     }
-    childGroups {
-      id
-      name
-    }
-    items {
-      id
-      name
-    }
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetGroupGQL extends Apollo.Query<GetGroupQuery, GetGroupQueryVariables> {
+  override document = GetGroupDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
   }
 }
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetGroupGQL extends Apollo.Query<GetGroupQuery, GetGroupQueryVariables> {
-    override document = GetGroupDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }
 export const GetItemDocument = gql`
-    query GetItem($id: ID!) {
-  item(id: $id) {
-    id
-    name
-    group {
+  query GetItem($id: ID!) {
+    item(id: $id) {
       id
       name
+      group {
+        id
+        name
+      }
     }
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetItemGQL extends Apollo.Query<GetItemQuery, GetItemQueryVariables> {
+  override document = GetItemDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
   }
 }
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetItemGQL extends Apollo.Query<GetItemQuery, GetItemQueryVariables> {
-    override document = GetItemDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }

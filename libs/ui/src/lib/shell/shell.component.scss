@@ -1,16 +1,16 @@
 .wrapper {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-wrap: nowrap;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .sidebar {
-    height: 100%;
-    width: 15rem;
+  height: 100%;
+  width: 15rem;
 }
 
 .content {
-    min-height: 100%;
-    flex:1;
+  min-height: 100%;
+  flex: 1;
 }

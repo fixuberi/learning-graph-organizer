@@ -1,11 +1,11 @@
 overwrite: true
-schema: "libs/graph-ql/src/lib/schema.graphql"
-documents: "libs/graph-ql/src/lib/**/*.graphql"
+schema: 'libs/graph-ql/src/lib/schema.graphql'
+documents: 'libs/graph-ql/src/lib/**/*.graphql'
 generates:
   apps/learning-graph/src/app/core/graphql/codegen.service.ts:
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-apollo-angular"
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-apollo-angular'
     config:
       addExplicitOverride: true

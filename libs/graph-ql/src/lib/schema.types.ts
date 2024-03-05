@@ -1,4 +1,3 @@
-
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -9,55 +8,55 @@
 /* eslint-disable */
 
 export interface CreateGroupInput {
-    name: string;
-    parentId?: Nullable<string>;
+  name: string;
+  parentId?: Nullable<string>;
 }
 
 export interface UpdateGroupInput {
-    id: string;
-    name?: Nullable<string>;
-    parentId?: Nullable<string>;
+  id: string;
+  name?: Nullable<string>;
+  parentId?: Nullable<string>;
 }
 
 export interface CreateItemInput {
-    name: string;
-    groupId: string;
+  name: string;
+  groupId: string;
 }
 
 export interface UpdateItemInput {
-    id: string;
-    name?: Nullable<string>;
-    groupId?: Nullable<string>;
+  id: string;
+  name?: Nullable<string>;
+  groupId?: Nullable<string>;
 }
 
 export interface IQuery {
-    group(id: string): Nullable<Group> | Promise<Nullable<Group>>;
-    groups(): Nullable<Nullable<Group>[]> | Promise<Nullable<Nullable<Group>[]>>;
-    item(id: string): Nullable<Item> | Promise<Nullable<Item>>;
-    items(): Nullable<Nullable<Item>[]> | Promise<Nullable<Nullable<Item>[]>>;
+  group(id: string): Nullable<Group> | Promise<Nullable<Group>>;
+  groups(): Nullable<Nullable<Group>[]> | Promise<Nullable<Nullable<Group>[]>>;
+  item(id: string): Nullable<Item> | Promise<Nullable<Item>>;
+  items(): Nullable<Nullable<Item>[]> | Promise<Nullable<Nullable<Item>[]>>;
 }
 
 export interface IMutation {
-    createGroup(input: CreateGroupInput): Nullable<Group> | Promise<Nullable<Group>>;
-    updateGroup(input: UpdateGroupInput): Nullable<Group> | Promise<Nullable<Group>>;
-    deleteGroup(id: string): Nullable<boolean> | Promise<Nullable<boolean>>;
-    createItem(input: CreateItemInput): Nullable<Item> | Promise<Nullable<Item>>;
-    updateItem(input: UpdateItemInput): Nullable<Item> | Promise<Nullable<Item>>;
-    deleteItem(id: string): Nullable<boolean> | Promise<Nullable<boolean>>;
+  createGroup(input: CreateGroupInput): Nullable<Group> | Promise<Nullable<Group>>;
+  updateGroup(input: UpdateGroupInput): Nullable<Group> | Promise<Nullable<Group>>;
+  deleteGroup(id: string): Nullable<boolean> | Promise<Nullable<boolean>>;
+  createItem(input: CreateItemInput): Nullable<Item> | Promise<Nullable<Item>>;
+  updateItem(input: UpdateItemInput): Nullable<Item> | Promise<Nullable<Item>>;
+  deleteItem(id: string): Nullable<boolean> | Promise<Nullable<boolean>>;
 }
 
 export interface Group {
-    id: string;
-    name: string;
-    parentGroup?: Nullable<Group>;
-    childGroups?: Nullable<Nullable<Group>[]>;
-    items?: Nullable<Nullable<Item>[]>;
+  id: string;
+  name: string;
+  parentGroup?: Nullable<Group>;
+  childGroups?: Nullable<Nullable<Group>[]>;
+  items?: Nullable<Nullable<Item>[]>;
 }
 
 export interface Item {
-    id: string;
-    name: string;
-    group?: Nullable<Group>;
+  id: string;
+  name: string;
+  group?: Nullable<Group>;
 }
 
 type Nullable<T> = T | null;

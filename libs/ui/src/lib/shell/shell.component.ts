@@ -13,5 +13,5 @@ import { RouterModule } from '@angular/router';
 export class ShellComponent {
   @Input() title = '';
 
-  @Input() navItems: {path: string, label: string}[] = []
+  @Input() navItems: { path: string; label: string }[] = [];
 }

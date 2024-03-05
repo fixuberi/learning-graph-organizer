@@ -9,5 +9,5 @@ import { GetAllGroupsGQL } from '../../../../core/graphql/codegen.service';
 })
 export class KnowledgeBaseComponent {
   allGroupsQuery = inject(GetAllGroupsGQL);
-  groups$  = this.allGroupsQuery.watch().valueChanges
+  groups$ = this.allGroupsQuery.watch().valueChanges;
 }

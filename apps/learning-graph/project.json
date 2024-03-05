@@ -16,10 +16,7 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/learning-graph/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/learning-graph/src/favicon.ico",
-          "apps/learning-graph/src/assets"
-        ],
+        "assets": ["apps/learning-graph/src/favicon.ico", "apps/learning-graph/src/assets"],
         "styles": [
           "apps/learning-graph/src/styles.scss",
           "node_modules/primeflex/primeflex.css",

@@ -1,9 +1,6 @@
 import { Group, Item } from '@learning-graph/graph-ql';
 
-export type FromDbGroup = Omit<
-  Group,
-  'parentGroup' | 'childGroups' | 'items'
-> & {
+export type FromDbGroup = Omit<Group, 'parentGroup' | 'childGroups' | 'items'> & {
   parentGroupId?: string;
   childGroupIds: Array<string>;
   itemIds: Array<string>;

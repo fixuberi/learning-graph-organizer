@@ -27,15 +27,9 @@ export class GroupService {
   }
 
   private resolveGroup(group: FromDbGroup): Group {
-    const parentGroup = group.parentGroupId
-      ? this.groups.find((g) => g.id === group.parentGroupId)
-      : null;
-    const childGroups = group.childGroupIds.map((childId) =>
-      this.groups.find((g) => g.id === childId)
-    );
-    const items = group.itemIds.map((itemId) =>
-      this.items.find((item) => item.id === itemId)
-    );
+    const parentGroup = group.parentGroupId ? this.groups.find((g) => g.id === group.parentGroupId) : null;
+    const childGroups = group.childGroupIds.map((childId) => this.groups.find((g) => g.id === childId));
+    const items = group.itemIds.map((itemId) => this.items.find((item) => item.id === itemId));
 
     return {
       ...group,

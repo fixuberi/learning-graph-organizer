@@ -37,6 +37,17 @@
         "jest": true
       },
       "rules": {}
+    },
+    {
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier"
+      ],
+      "rules": {
+        "prettier/prettier": "error"
+      },
+      "plugins": ["@angular-eslint/eslint-plugin", "prettier"]
     }
   ]
 }

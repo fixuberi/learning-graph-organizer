@@ -11,15 +11,14 @@ import { GroupModule } from '../modules/group/group.module';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      typePaths: [join(process.cwd(),'libs/graph-ql/src/lib/schema.graphql')],
+      typePaths: [join(process.cwd(), 'libs/graph-ql/src/lib/schema.graphql')],
       definitions: {
-        path: join(process.cwd(),'libs/graph-ql/src/lib/graphql.types.ts'),
+        path: join(process.cwd(), 'libs/graph-ql/src/lib/graphql.types.ts'),
       },
     }),
-    GroupModule
+    GroupModule,
   ],
   controllers: [AppController],
-  providers: [AppService,
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

@@ -2,7 +2,6 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { GroupService } from './group.service';
 import { IQuery } from '@learning-graph/graph-ql';
 
-
 @Resolver('Group')
 export class GroupResolver {
   constructor(private readonly groupService: GroupService) {}
